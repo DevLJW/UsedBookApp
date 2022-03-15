@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".Board.BoardWriteActivity"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="60dp">
+
+
+            <TextView
+                android:text="글수정 페이지"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:textColor="@color/black"
+                android:gravity="center"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="#000000"/>
+
+
+        <EditText
+            android:id="@+id/titleArea"
+            android:layout_margin="20dp"
+            android:layout_width="match_parent"
+            android:background="@android:color/transparent"
+            android:hint="제목을 입력 해주세요."
+            android:layout_height="60dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginLeft="20dp"
+            android:background="#000000"/>
+
+        <EditText
+            android:id="@+id/contentArea"
+            android:layout_margin="20dp"
+            android:background="@android:color/transparent"
+            android:layout_width="match_parent"
+            android:hint="내용을 입력 해주세요."
+            android:layout_height="100dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginLeft="20dp"
+            android:background="#000000"/>
+
+
+        <ImageView
+            android:id="@+id/ImageBtn"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginLeft="160dp"
+            android:layout_marginTop="1dp"
+            android:padding="30dp"
+            android:src="@drawable/plusbtn" />
+
+        <Button
+            android:id="@+id/editBtn"
+            android:text="수정2321321412"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:background="@drawable/background_radius_yellow"
+            android:layout_marginTop="60dp"
+            android:layout_marginLeft="120dp"
+            android:layout_marginRight="30dp"
+            android:padding="30dp"
+            />
+
+
+    </LinearLayout>
+</layout>

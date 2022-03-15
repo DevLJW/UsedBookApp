@@ -1,0 +1,15 @@
+1. FirebaseAuth 호출
+
+FirebaseAuth를 선언하기 위해서는 "FirebaseAuth.getInstance() "를 입력합니다.
+
+class MainActivity : AppCompatActivity() {
+
+    lateinit var auth : FirebaseAuth
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_main)
+
+        auth =FirebaseAuth.getInstance()
+    }
+}

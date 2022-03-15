@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+            <TextView
+                android:text="정말로 회원 탈퇴를 하시겠습니까 ?"
+                android:layout_margin="20dp"
+                android:textSize="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+    <Button
+        android:id="@+id/okbtn"
+        android:text="확인"
+        android:background="@drawable/background_radius_yellow"
+        android:layout_margin="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        />
+
+    <Button
+        android:id="@+id/nobtn"
+        android:text="취소"
+        android:background="@drawable/background_radius_yellow"
+        android:layout_margin="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+
+
+</LinearLayout>

@@ -1,0 +1,48 @@
+Data Binding
+
+    데이터 바인딩을 사용하면, 데이터를 UI 요소에 연결하기 위해 필요한 코드를 최소화 할 수 있다.
+     장점: 1. findViewId() 를 호출하지 않아도, 자동으로 xml 에 있는 VIew 들을 만들어준다.
+           2. data 가 바뀌면 자동으로 View 를 변경하게 할 수 있다.
+           3. xml 리소스만 보고도 View 에 어떤 데이터가 들어가는지 파악이 가능하다.
+           4. 코드 가독성이 좋아지고, 상대적으로 코드량이 줄어든다.
+
+     데이터 바인딩을 사용하는 방법
+     app/build.gradle 에 dataBinding 요소를 추가한다
+     andorid {
+     ...
+     dataBinding{
+        enabled = true
+     }
+
+  }
+
+    <layout> 태그 안에 XML 레이아웃을 작성한다
+
+    data binding 을 사용하는 xml 리소스는 <layout> 루트 태그로 시작하여야 한다.
+
+    binding class 는 data binding 을 사용하는 클래스의 이름(위의 경우에는 MainActivity)에 따라
+    각 레이아웃 파일에 대해 뒤에 "Binding" 이라는 suffix가 붙은 Camel Case 로 자동으로 생성된다.
+
+    actvity_join.xml이라는 파일을 예로 들어, 자동 생성된 Binding Class의 이름은
+    ActvityJoinBinding이다.
+
+
+   기존의 setContentView() 함수를 DataBindingUtil.setContentView() 로 교체한다.
+
+   DataBindingUtil class 의 객체를 생성하고, 기존의 setContentView() 를 DataBindingUtil.setContentView() 로 대체한다.
+
+   이제, data binding 을 사용하여 layout 을 관리할 수 있다.
+
+    view 에 보여줄 이름 data class 를 선언한다.
+
+
+
+    xml 리소스의 <layout> 태그 안에 <data> 요소를 작성해준다.
+
+    <data> 태그는 <layout> 에서 사용할 변수를 정의하는데 사용된다.
+
+    User 라는 data class 객체를 사용할 것이기 때문에 name 이 user 인 variable 을 하나 선언한다.
+
+    레이아웃 내의 표현식은 "@{}" 구문을 사용하여 속성(attribute properties) 에서 작성된다.
+
+    TextView 의 텍스트를 user 변수내의 name 프로퍼티로 설정했다.

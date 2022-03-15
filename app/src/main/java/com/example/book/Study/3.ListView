@@ -1,0 +1,138 @@
+
+List View는 사용자가 정의한 데이터 목록을 세로방향으로 나열하여 화면에 표시하는 뷰 그룹의 종륲 입니다.
+Liset View와 같은 뷰 그룹은 스크롤 기능을 지원하며 사용자가 배치된 각 항목(Item)을 선택하는 것도 가능 합니다.
+
+Adapter
+
+List View에 사용자가 정의한 데이터를 표시하기 위해서는 Adapter를 사용해야 합니다.
+어댑터는 사용자의 데이터를 받아 뷰를 생성해주는 객체로 ListView와는 독립적으로 동작하는 객체 입니다.
+ListView는 Adapter로부터 생성된 뷰를 받아 ListView의 한 항목으로 배치 합니다.
+어댑터는 관리되는 데이터와 제공하는 뷰 형태에 따라 종류가 다양 합니다.
+
+구현순서
+
+1. XML 레이아웃 리소스에 ListView를 정의
+
+1-1. fragment_board.xml (리스트뷰를 표기할 화면 범위지정)
+
+<ListView
+            android:id="@+id/boardListView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="75dp"/>
+
+
+
+1-2. board_list_item.xml(보여질 리스트뷰 화면)
+
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="120dp"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/titleArea"
+        android:text="title"
+        android:textSize="20sp"
+        android:layout_margin="15dp"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <TextView
+        android:id="@+id/contentArea"
+        android:text="content"
+        android:textSize="15sp"
+        android:textColor="@color/black"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <TextView
+        android:id="@+id/timeArea"
+        android:text="time"
+        android:textSize="10sp"
+        android:textColor="#999999"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="5dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+
+
+</LinearLayout>
+
+
+
+2. ListView에 표현할 데이터 객체를 생성하기 위한 Class를 생성. 해당 클래스의 객체를 생성앟여
+MutableList(수정불가)리스트에 담아 Adapter에서 관리하도록 구현할 것 입니다.
+
+BoardModel(게시글정보를 담기위한 생성한 클래스)
+
+data class BoardModel (
+        val title  :String? = "",  널값 체크
+        val content :  String? = "",
+        val time  : String? = "",
+        val uid  : String? = "",
+        )
+
+
+3.Adapter에서 각 데이터 항목에 대하여 뷰를 생성하기 위해서는 미리 정의된 XML 레이아웃 리소스를 사용 합니다.
+XML 레이아웃 리소스를 전개자를 통해 각 뷰가 참조를 얻어 현재 아이템 항목에 해당하는 데이터를 바인딩하여
+뷰를 생성한 뒤 해당 뷰를 반환해주는 함수를 구현
+
+BoardWriteActivity(어댑터)
+class BoardListLVAdapter (val boardList : MutableList<BoardModel>) : BaseAdapter() { (BoardModel객체를 넘겨받아 boardList가 참조할수 있게 하도록 함)
+
+
+    override fun getCount(): Int {
+      return boardList.size
+    }
+
+    override fun getItem(position: Int): Any {
+       return boardList[position]
+    }
+
+    override fun getItemId(position: Int): Long {
+       return position.toLong()
+    }
+
+    override fun getView(position: Int, convertView: View?, parent: ViewGroup?): View { (ListView에 표현하기 위한 뷰를 생성하는 함수)
+      var converView = convertView
+
+        if(converView == null) {
+
+            converView = LayoutInflater.from(parent?.context).inflate(R.layout.board_list_item,parent,false) (board_list_item의 내용을 파싱하여 뷰 객체화)
+        }
+
+        val title = converView?.findViewById<TextView>(R.id.titleArea) (ListView에 표현하기 위해 뷰를 담는 변수)
+        title!!.text = boardList[position].title
+
+        val content = converView?.findViewById<TextView>(R.id.contentArea)  (ListView에 표현하기 위해 뷰를 담는 변수)
+        content!!.text = boardList[position].content
+
+        val time = converView?.findViewById<TextView>(R.id.timeArea)  (ListView에 표현하기 위해 뷰를 담는 변수)
+        time!!.text = boardList[position].time
+
+
+
+        return converView!! //반환
+    }
+}
+
+
+
+4.Adapter 구현이 끝나면 구현한 Adapter와 ListView를 연결해주는 작업을 진행 한다.
+  마지막으로, ListView에 Click 이벤트를 연결하면 예제 구현이 끝난다.
+
+   private val boardDataList = mutableListOf<BoardModel>() //수정가능한 리스트(MutableListOf) 수정가능한 리스트(MutableListOf)  Type이 BoardModel인 ArrayList로 초기화
+   private lateinit var boardRVAdapter : BoardListLVAdapter // BoardListLVAdapter  형식으로 선언하여 BoardListAdapter에 접근할 수 있도록 선언
+
+     boardRVAdapter = BoardListLVAdapter(boardDataList) // BoardListLVAdapter 파일의 boardDataList 데이터를 제어할 수 있도록 선언
+     binding.boardListView.adapter = boardRVAdapter  // fragmentboard의 ListView 영역에 boardDataList 연결
+
