@@ -1,0 +1,70 @@
+https://firebase.google.com/docs/reference/kotlin/com/google/firebase/auth/FirebaseAuth.html#createUserWithEmailAndPassword(java.lang.String,%20java.lang.String)
+
+abstract class FirebaseAuth : InternalTokenProvider
+
+
+
+https://developer.android.com/reference/com/google/android/play/core/tasks/Task.html?hl=ko#addOnCompleteListener(com.google.android.play.core.tasks.OnCompleteListener%3CResultT%3E)
+https://developer.android.com/reference/com/google/android/play/core/tasks/OnCompleteListener.html?hl=ko
+
+
+작업이 완료될 때 호출되는 수신기를 추가
+리스너는 기본 애플리케이션 스레드에서 호출된다.
+작업이 이미 완료된 경우 수신기에 대한 호출이 즉시 예약 된다.
+
+
+[Task]
+
+public abstatct class Task extends Object
+
+공통 생성자 : Task()
+
+[public method]
+
+addOnCompleteListener(OnCompleteListener<ResultT> listener)
+
+Task.addOnCompleteListener(OnCompleteListener)
+
+
+this : createuser의 반환값 Task<AuthResult!> 형식을 this로 표기
+
+.addOnCompleteListener(this)로 task 이고 <AuthResult!> 형식으로 된 반환값을 this(OnCompleteListener) 타입으로 매개변수로 전달(인터페이스의 추상메소드를 참조하기위해)
+
+OnCompleteListener 같은경우 public interface OnCompleteListener 인터페이스 안에 public abstract void onComplete (Task<ResultT> task)로 추상메소드 하나로 구현되어있음
+
+추상메소드가 하나같은 경우, 람다식으로 .addOnCompleteListener(this){ task -> //이벤트 핸들러 createUser(회원 생성 함수가 완료 됬을때 실행됨)
+                                  if (task.isSuccessful) {   task ->로 표현 가능
+
+// 람다가 어떤 메소드의 유일한 인수인 경우 메서드의 괄호를 생략할 수 있다. button.setOnClickListener { v : V-> // 클릭시 처리 }
+
+
+
+
+
+
+
+
+
+
+
+ResultT 타입의 온컴플리트 리스너 함수
+
+addOnCompleteListener(Executor executor, OnCompleteListener<ResultT> listener)
+
+addOnFailureListener(Executor executor, OnFailureListener listener)
+
+addOnFailureListener(OnFailureListener listener)
+
+addOnSuccessListener(Executor executor, OnSuccessListener<? super ResultT> listener)
+
+addOnSuccessListener(OnSuccessListener<? super ResultT> listener)
+
+getException()
+
+getResult()
+
+getResult(Class<X> exceptionType)
+
+isComplete()
+
+isSuccessful()
