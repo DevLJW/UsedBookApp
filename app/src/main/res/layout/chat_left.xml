@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:orientation="horizontal"
+    android:layout_height="80dp">
+
+    <TextView
+        android:id="@+id/left_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:textSize="20dp"
+        android:text="name">
+    </TextView>
+
+    <TextView
+        android:id="@+id/leftmsg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:textSize="20dp"
+        android:text="chat_text">
+    </TextView>
+
+</LinearLayout>
