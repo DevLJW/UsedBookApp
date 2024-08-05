@@ -27,6 +27,7 @@ import com.google.firebase.database.ValueEventListener
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.ktx.storage
 import java.lang.Exception
+import java.util.*
 
 class BoardInsideActivity : AppCompatActivity() {
 
@@ -45,9 +46,13 @@ class BoardInsideActivity : AppCompatActivity() {
         binding = DataBindingUtil.setContentView(this, R.layout.activity_board_inside)
 
         binding.boardsetbtn.setOnClickListener {
-            showDialog()
+
 
         }
+       
+
+
+
 
 
         key = intent.getStringExtra("key").toString()
@@ -83,6 +88,8 @@ class BoardInsideActivity : AppCompatActivity() {
                 }
                 commentAdapter.notifyDataSetChanged() //동기화
             }
+
+
 
 
 
@@ -140,9 +147,10 @@ class BoardInsideActivity : AppCompatActivity() {
 
         alertDialog.findViewById<Button>(R.id.realdeletebtn)?.setOnClickListener() {
             
-            FBRef.boardRef.child(key).removeValue()
-            ImageDelete(key)
-            FBRef.commentRef.child(key).removeValue()
+            FBRef.boardRef.child(key).removeValue() //게시글 데이터베이스 값 삭제
+            Toast.makeText(this,"게시글 삭제가 완료 되었습니다.", Toast.LENGTH_LONG).show()
+            ImageDelete(key) //게시글에 업로드된 이미지 삭제
+            FBRef.commentRef.child(key).removeValue() //게시글에 달린 댓글 삭제
             finish()
 
         }
@@ -164,13 +172,13 @@ class BoardInsideActivity : AppCompatActivity() {
         val storageRef = storage.reference
 
         // Create a reference to the file to delete
-        val desertRef = storageRef.child(key +".jpg")
+        val desertRef = storageRef.child(key +".jpg") //이미지 업로드시 사용자 key 값 + .jpg이름으로 업로드
 
         // Delete the file
-        desertRef.delete().addOnSuccessListener {
-            Toast.makeText(this,"게시글 삭제가 완료 되었습니다.",Toast.LENGTH_LONG).show()
-        }.addOnFailureListener {
-            Toast.makeText(this,"게시글 삭제가 완료 되었습니다.",Toast.LENGTH_LONG).show()
+        desertRef.delete().addOnSuccessListener { //이벤트리스너 이미지 삭제 성공시 멘트작성
+
+        }.addOnFailureListener {//이벤트리스너 이미지 삭제 실패시 멘트작성
+
         }
 
 
@@ -180,21 +188,20 @@ class BoardInsideActivity : AppCompatActivity() {
     private fun getboardDate(key : String){
 
 
-            val postListener = object : ValueEventListener {
-                override fun onDataChange(dataSnapshot: DataSnapshot) {
+            val postListener = object : ValueEventListener { //변수에 객체형식으로  ValueEventListener인터페이스 상속 받기
+                override fun onDataChange(dataSnapshot: DataSnapshot) { //보드테이블에 있는 컬럼 가져오기(dataSnapshot 변수에 dataSnapshot 객체 타입으로
 
                     try {
-                        val dataModel =
-                            dataSnapshot.getValue(BoardModel::class.java) //보드모델형태로 데이터를 받을꺼다.
+                        val dataModel = dataSnapshot.getValue(BoardModel::class.java) //보드모델 클래스 파일의 형식으로 데이터를 전달한다.
 
-                        binding.titleArea.text = dataModel!!.title
-                        binding.textArea.text = dataModel!!.content
+                       binding.titleArea.text = dataModel!!.title  //데이터모델 클래스에 있는 데이터를 this text에 값 대입
+                       binding.textArea.text = dataModel!!.content
                         binding.timeArea.text = dataModel!!.time
 
-                        val myuid = FBAuth.getUid()
-                        val writeruid = dataModel.uid
-                        if(myuid.equals((writeruid))){
-                            binding.boardsetbtn.isVisible = true
+                        val myuid = FBAuth.getUid() //파이어베이스 현재 로그인한 사용자의 uid값 가져오는 함수
+                        val writeruid = dataModel.uid // 데이터모델 클래스에 있는 UID값 가져오기
+                        if(myuid.equals((writeruid))){ //글쓴이와 현재로그인한사용자의 uid값이 같을시,
+                            binding.boardsetbtn.isVisible = true //수정버튼 활성화
 
                         }else{
                             Log.d("123","내가쓴글아님")
@@ -208,7 +215,7 @@ class BoardInsideActivity : AppCompatActivity() {
                     }
                 }
 
-                override fun onCancelled(databaseError: DatabaseError) {
+                override fun onCancelled(databaseError: DatabaseError) { //데이터베이스 오류시 출력되는 글
 
                     Log.w(TAG, "loadPost::onCancelled", databaseError.toException())
                 }
@@ -216,7 +223,7 @@ class BoardInsideActivity : AppCompatActivity() {
 
             }
 
-            FBRef.boardRef.child(key).addValueEventListener(postListener)
+            FBRef.boardRef.child(key).addValueEventListener(postListener) // 게시판 리스너 호출
 
 
         }
@@ -226,15 +233,15 @@ class BoardInsideActivity : AppCompatActivity() {
 
     private fun getImageData(key : String) {
         // Reference to an image file in Cloud Storage
-        val storageReference = Firebase.storage.reference.child(key +".jpg")
+        val storageReference = Firebase.storage.reference.child(key +".jpg") //최상위 주소 바로아래에 key값 + .jpg이름으로 이미지 저장
 
         // ImageView in your Activity
-        val imageViewFromFB = binding.getImageArea
+        val imageViewFromFB = binding.getImageArea //xml파일에 있는 이미지를 this페이지에 대입
 
         storageReference.downloadUrl.addOnCompleteListener(OnCompleteListener { task ->
             if(task.isSuccessful){
-                binding.getImageArea.isVisible = false
-              //  Glide.with(this).load(task.result).into(imageViewFromFB)
+                binding.getImageArea.isVisible = true
+                Glide.with(this).load(task.result).into(imageViewFromFB)
             }else {
                 binding.getImageArea.isVisible = false //이미지가 없을때 여백 없애기
             }

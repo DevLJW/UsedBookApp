@@ -1,5 +1,5 @@
 
-List View는 사용자가 정의한 데이터 목록을 세로방향으로 나열하여 화면에 표시하는 뷰 그룹의 종륲 입니다.
+List View는 사용자가 정의한 데이터 목록을 세로방향으로 나열하여 화면에 표시하는 뷰 그룹의 종류 입니다.
 Liset View와 같은 뷰 그룹은 스크롤 기능을 지원하며 사용자가 배치된 각 항목(Item)을 선택하는 것도 가능 합니다.
 
 Adapter
@@ -69,7 +69,7 @@ ListView는 Adapter로부터 생성된 뷰를 받아 ListView의 한 항목으�
 
 
 
-2. ListView에 표현할 데이터 객체를 생성하기 위한 Class를 생성. 해당 클래스의 객체를 생성앟여
+2. ListView에 표현할 데이터 객체를 생성하기 위한 Class를 생성. 해당 클래스의 객체를 생성하여
 MutableList(수정불가)리스트에 담아 Adapter에서 관리하도록 구현할 것 입니다.
 
 BoardModel(게시글정보를 담기위한 생성한 클래스)
@@ -135,4 +135,18 @@ class BoardListLVAdapter (val boardList : MutableList<BoardModel>) : BaseAdapter
 
      boardRVAdapter = BoardListLVAdapter(boardDataList) // BoardListLVAdapter 파일의 boardDataList 데이터를 제어할 수 있도록 선언
      binding.boardListView.adapter = boardRVAdapter  // fragmentboard의 ListView 영역에 boardDataList 연결
+
+
+
+
+    다음에 보여질 새로운 아이템의 데이터를 보여주려면 인플레이션 과정이 계속해서 새롭게 일어나야 한다.
+    각 아이템은 내용만 다를뿐 레이아웃은 동일한 아이템이기 떄문에 재사용할 수 있으면 얼마나 좋은가.
+    또한 모든 아이템에 인플레이션 과정이 일어나면 성능상으로도 좋지 않을것이라고 생각된다.
+    ListView는 아이템의 전체개수가 아닌 화면에 보여지는 개수 만큼만 View를 그려놓은 뒤 그것을 재활용하는 구조로 설계.
+    예를들어, 아이템의 개수가 50개라 가정하고 실제로 화면에 보여지는 아이템이 5개라고 하면 모든 아이템의 View를 생성하여서 보여주는 것이 아니라,
+    화면에 보이는 5개의 아이템만 보여준다. 여기서 ListView 스크롤이 내려가게되면 첫번째 View는 사라지고 6번쨰 view가 보여진다.
+    이떄 6번쨰의 View는 새로 생성되는 것이 아니라 기존에 만들어진 View를 재사용하게 되는데 그것이 converView이다.
+
+    ConvertView가 null이라는 의미는 아직 재사용될 뷰가 없다는 것이기 때문에 처음 화면이 보였을 때 호출되는 스코프이다.
+    화면에 보일수 있는 아이템이 5개라고 한다면 if문은 5번만 호출되고 이후에는 재사용된 뷰만을 사용할 것이다.
 

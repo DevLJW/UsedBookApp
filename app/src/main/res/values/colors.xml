@@ -9,5 +9,13 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
 
+
+
+    <color name="colorPrimary">#FF5722</color>
+    <color name="colorPrimaryDark">#DF6635</color>
+    <color name="colorAccent">#D81B60</color>
+    <color name="whiteColor">#ffffff</color>
+    <color name="gray">#aaaaaa</color>
+
     <!-- Main Color name으로 노란색을 지정하여 필요할떄마다 색깔지정안하고 네임으로 불러오기-->
 </resources>

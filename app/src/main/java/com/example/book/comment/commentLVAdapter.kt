@@ -26,7 +26,7 @@ class commentLVAdapter(val commentList : MutableList<commentmodel>) : BaseAdapte
 
         if(converView == null) {
             converView = LayoutInflater.from(parent?.context)
-                .inflate(R.layout.board_list_item, parent, false)
+                .inflate(R.layout.comment_list_item, parent, false)
         }
         val title = converView?.findViewById<TextView>(R.id.titleArea)
         title!!.text = commentList[position].commenttitle

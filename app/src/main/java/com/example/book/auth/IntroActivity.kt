@@ -6,6 +6,7 @@ import android.os.Bundle
 import androidx.databinding.DataBindingUtil
 import com.example.book.R
 import com.example.book.databinding.ActivityIntroBinding
+            //인트로 페이지 (회원가입 또는 로그인 선택화면)
 
 class IntroActivity : AppCompatActivity() {
     //데이터바인딩 : 데이터와 뷰를 연결하는 작업을 레이아웃에서 처리하는 기술
@@ -18,6 +19,8 @@ class IntroActivity : AppCompatActivity() {
    //     setContentView(R.layout.activity_intro)
 
         binding = DataBindingUtil.setContentView(this,R.layout.activity_intro) //현재 페이지를 actvity_intro.xml파일과 연결해준다.
+        //this ==> 현재 Actvity 페이지 R.layout.actvity_intro --> XML 파일 연결
+        //실행 하고 결과값이 binding 변수에 넣음
 
 
 

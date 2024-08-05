@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+<FrameLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".fragments.test1Fragment">
 
     <!-- TODO: Update blank fragment layout -->
@@ -39,7 +39,7 @@
                 android:background="@color/white"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:src="@drawable/bottom_goodtip"/>
+                android:src="@drawable/bookinfo"/>
 
             <ImageView
                 android:id="@+id/Test1"
@@ -55,10 +55,19 @@
                 android:background="@color/white"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:src="@drawable/bottom_goodtip"/>
+                android:src="@drawable/map"/>
 
         </LinearLayout>
 
+        <ImageView
+            android:id="@+id/ChatStartBtn"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_marginEnd="28dp"
+            android:layout_marginBottom="64dp"
+            android:src="@drawable/chatstart"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

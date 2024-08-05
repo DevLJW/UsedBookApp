@@ -44,6 +44,15 @@
                 android:layout_height="wrap_content"
                 android:hint="Email" />
 
+            <TextView
+                android:id="@+id/UserUpdateEmailIssue"
+                style="@style/AuthEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="#ff0000"
+                android:textSize="15dp"
+                android:visibility="gone" />
+
             <!-- 선만드는 용도-->
             <LinearLayout
                 android:layout_width="match_parent"
@@ -54,35 +63,48 @@
 
 
             <EditText
+
+                android:id="@+id/UserUpdateNickName"
+                style="@style/AuthEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="NickName" />
+
+            <TextView
+                android:id="@+id/UserUpdateNickNameIssue"
+                style="@style/AuthEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="#ff0000"
+                android:textSize="15dp"
+                android:visibility="gone" />
+
+            <!-- 선만드는 용도-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:background="#999999"
+                android:layout_height="0.5dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"/>
+
+
+
+
+            <EditText
                 android:id="@+id/UserUpdatePassword1"
                 android:hint="password"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 style="@style/AuthEditText" />
 
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:background="#999999"
-                android:layout_height="0.5dp"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"/>
-
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:background="#999999"
-                android:layout_height="0.5dp"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"/>
-
-            <EditText
-                android:id="@+id/UserUpdatePhonenumber"
-                android:hint="휴대폰번호"
+            <TextView
+                android:id="@+id/UserUpdatePassword1Issue"
+                style="@style/AuthEditText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                style="@style/AuthEditText" />
-
+                android:textColor="#ff0000"
+                android:textSize="15dp"
+                android:visibility="gone" />
 
 
             <LinearLayout
@@ -93,12 +115,9 @@
                 android:layout_marginRight="10dp"/>
 
 
-            <EditText
-                android:id="@+id/UserUpdateAddress"
-                android:hint="주소"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                style="@style/AuthEditText" />
+
+
+
 
 
             -->

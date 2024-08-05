@@ -13,6 +13,8 @@
     android:layout_height="match_parent">
 
 
+
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="60dp"
@@ -39,7 +41,7 @@
             android:background="@color/white"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:src="@drawable/bottom_goodtip"/>
+            android:src="@drawable/bookinfo"/>
 
         <ImageView
             android:id="@+id/Test1"
@@ -55,13 +57,17 @@
             android:background="@color/white"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:src="@drawable/bottom_goodtip"/>
+            android:src="@drawable/map"/>
 
     </LinearLayout>
 
 
 
+
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
+
 
 </FrameLayout>
 </layout>
