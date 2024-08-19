@@ -23,7 +23,7 @@
 ## 개발동기
 대학생활을 하면서 매학기가 바뀌면 사야하는 교재,참고도서 등 적지 않은 금액이 발생하고,<br>
 학년이 올라가면서 전에 쓰던 책들을 처분하고 싶어, 판매자와 구매자들 간의<br>
-저렴한 가격에 판매 똔느 구매 했으면 좋겠다는 생각에 기획 했습니다.
+저렴한 가격에 판매 또는 구매 했으면 좋겠다는 생각에 기획 했습니다.
 <br>
 <br>
 
@@ -39,6 +39,7 @@
 * 백엔드
 * 데이터 베이스 설계
 <br>
+
 
 
 
@@ -66,36 +67,51 @@
 
 ## 주요기능소개
 ### 1. 회원가입
- <img src="https://github.com/user-attachments/assets/089e63cb-d3f5-4584-a6fd-2e3500c0484d" width="80%" height="60%">
+ <img src="https://github.com/user-attachments/assets/0d6785ea-239f-4046-ba9a-0b5c90e37fcf" width="50%" height="40%">
  <br><br><br>
-회원가입 필드는, 이메일,이름,닉네임,패스워드,패스워드 확인,연락처 인증번호 확인란으로 구성이 되어 있습니다.<br>
-Form 같은 경우, React-Hook-Form으로 구성을 했습니다. 리렌더를 최소화 시키고, 실시간 동기화를 하기 위하여 사용 했습니다.<br>
-인증 메세지 같은경우, Cool-SMS API를 사용 했습니다.<br>
-회원가입 성공 시, JOIN_USER API를 호출하여 입력받은 값을 TypeOrm을 통하여 DB에 저장시킵니다.<br>
-패스워드 같은 경우, crypto 라이브러리를 통하여 암호화 시킨 후 DB에 저장 합니다.
-
-
-
-
-
+회원가입 필드는, 이메일,패스워드,패스워드 확인,닉네임란으로 구성이 되어 있습니다.<br>
+회원가입 성공 시, FireBase의 SignWithEmailAndPassword 메소드를 호출하여 DB에 저장시킵니다.<br>
+회원가입 실패 시, 실패한 내용이 입력한 하단에 출력 됩니다.
 <br><br>
 
 
+
 ### 2. 로그인
- <img src="https://github.com/user-attachments/assets/890ca0dc-cd72-45b4-be05-fd2373b08c3f" width="80%" height="60%">
+ <img src="https://github.com/user-attachments/assets/67b313c5-551b-4a56-a872-35088ade7d75" width="40%" height="20%">
   <br><br><br>
-로그인 필드는 이메일,패스워드 필드란으로 구성이 되어있고, React-Hook_Form으로 구성 했습니다.<br>
+로그인 필드는, 이메일,패스워드,패스워드 확인,닉네임란으로 구성이 되어 있습니다.<br>
 입력한 데이터가 DB의 데이터와 일치하면, 로그인이 성공 합니다.<br>
-패스워드 같은경우 백엔드에서 복호화를 통하여 입력한 패스워드와 DB의 패스워드와 일치한지 비교 합니다.<br>
-로그인 성공 시, 사용자에게 AccessToken을 부여하며 글로벌 스테이트 인 Recoil에 저장 합니다. 부여받은 AccessToken을 통해 인가를 받게 됩니다.
-현재는 로그인 시, AccessToken을 부여하는 방식 이지만, 추후 RefreshToken을 추가하여 AccessToken 만료시, RefreshToken을 통하여 재발급 예정 입니다.
+로그인 성공 시, 사용자에게 토큰을 부여하며, 부여받은 AccessToken을 통해 인가를 받게 됩니다.<br>
+로그인 실패 시, 실패한 내용이 입력한 하단에 출력 됩니다.
+<br><br>
+
+
+
+### 3. 유저정보슬라이드
+ <img src="https://github.com/user-attachments/assets/6476fcc9-1288-4985-b753-891c05fd7931" width="40%" height="20%">
+  <br><br><br>
+유저정보슬라이드는 회원정보수정,회원탈퇴,로그아웃 버튼으로 구성이 되어 있습니다.<br>
+회원정보수정,회원탈퇴,로그아웃 버튼 클릭 시, 토큰에 대한 인가를 진행 합니다.<br>
+인가 성공 시, 사용자에게 토큰을 부여하며, 부여받은 AccessToken을 통해 인가를 받게 됩니다.<br>
+<br><br>
+
+
+### 4. 회원정보수정
+ <img src="https://github.com/user-attachments/assets/3dfe06b3-91f1-4b66-8387-4e8e83d6ae88" width="40%" height="20%">
+  <br><br><br>
+회원정보수정은 회원가입 때, 사용했던 회원가입정보를 수정할 수 있다.<br>
+동일한 닉네임, 이메일 입력 시, 에러메시지를 입력란 하단에 출력 됩니다.<br>
+입력란에 공백데이터 입력시, 에러메세지를 입력란 하단에 출력 됩니다.<br>
+수정 성공 시, DB내용이 수정이되며, 회원가입수정완료 토스트메세지가 출력 됩니다.<br>
+<br><br>
+
+
+
 
 
 ### 3. 게시글 작성
- <img src="https://github.com/user-attachments/assets/eda3f001-d725-45e7-a9cd-622d91e8c961" width="80%" height="60%">
+ <img src="https://github.com/user-attachments/assets/eda3f001-d725-45e7-a9cd-622d91e8c961" width="40%" height="20%">
   <br><br><br>
-
- 
 
 게시글 작성 필드는 작성자,비밀번호,제목,내용,이미지 업로드란으로 구성이 되어 있습니다.<br>
 이미지 업로드 같은경우, 최대 3장까지만 업로드가 가능 합니다.<br>
