@@ -14,21 +14,21 @@
 
 
 <!-- ABOUT THE PROJECT -->
-## CRUD기반 커뮤니티 사이트
+## 중고도서 사이트
 ![소통 메인](https://github.com/user-attachments/assets/67f6d109-1ada-4e96-b67f-13e7ee75270f)
 <br>
 
 
   
 ## 개발동기
-사용자들끼리 서로 소통이 가능한 CRUD 기반 커뮤니티 사이트를 제작 했습니다.<br>
-대부분의 사이트들에 있는 게시판,회원가입,로그인 기능들을 Front,Backend,DB를 학습해보고<br>
-1인 개발에 적절한 범위라고 생각하여 개발을 하게 되었습니다.
+대학생활을 하면서 매학기가 바뀌면 사야하는 교재,참고도서 등 적지 않은 금액이 발생하고,<br>
+학년이 올라가면서 전에 쓰던 책들을 처분하고 싶어, 판매자와 구매자들 간의<br>
+저렴한 가격에 판매 똔느 구매 했으면 좋겠다는 생각에 기획 했습니다.
 <br>
 <br>
 
 ## 개발기간
-2024.01.10 ~ 2024.03.10
+2022.10.01 ~ 2022.12.01
 <br>
 <br>
 
@@ -45,27 +45,20 @@
 ## 기술 스택
 ### FrontEnd
 <div>
-<img src="https://img.shields.io/badge/Next.js-000000?style=for-the-badge&logo=Next.js&logoColor=white">
-<img src="https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=TypeScript&logoColor=white">
-<img src="https://img.shields.io/badge/ReactHookForm-EC5990?style=for-the-badge&logo=ReactHookForm&logoColor=black">
-<img src="https://img.shields.io/badge/Recoil-3578E5?style=for-the-badge&logo=Recoil&logoColor=black">
-<img src="https://img.shields.io/badge/Emotion-EC5990?style=for-the-badge&logo=Emotion&logoColor=black">
+<img src="https://img.shields.io/badge/Kotlin-7F52FF?style=for-the-badge&logo=Kotlin&logoColor=white">
+<img src="https://img.shields.io/badge/JetpackCompose-4285F4?style=for-the-badge&logo=JetpackCompose&logoColor=white">
 </div>
 
-### BackEnd
+### BackEnd&DateBase
 <div>
-<img src="https://img.shields.io/badge/NestJS-E0234E?style=for-the-badge&logo=NestJS&logoColor=black">
+<img src="https://img.shields.io/badge/FireBase-DD2C00?style=for-the-badge&logo=FireBase&logoColor=white">
 </div>
 
-### DataBase
-<div>
-<img src="https://img.shields.io/badge/MySQL-4479A1?style=for-the-badge&logo=MySQL&logoColor=black">
-<img src="https://img.shields.io/badge/TypeORM-FE0803?style=for-the-badge&logo=TypeORM&logoColor=black">
-</div>
+
 
 ### API
 <div>
-<img src="https://img.shields.io/badge/GraphQL-E10098?style=for-the-badge&logo=GraphQL&logoColor=black">
+<img src="https://img.shields.io/badge/Retrofit-E10098?style=for-the-badge&logo=GraphQL&logoColor=black">
 </div>
 
 <br>
