@@ -106,6 +106,21 @@
 <br><br>
 
 
+### 5. 회원탈퇴
+ <img src="https://github.com/user-attachments/assets/4ab73491-8098-46b3-b5e2-67832714ecd0" width="40%" height="20%">
+  <br><br><br>
+회원탈퇴 버튼 클릭 시, 인가를 통하여 인가 성공시, 선택 다이얼로그 상자가 출력 됩니다.<br>
+"예" 버튼 클릭 시, 회원탈퇴가 되며, DB에 있는 내용들이 삭제되고, 인트로 화면으로 이동 합니다.<br>
+<br><br>
+
+### 6. 로그아웃
+ <img src="https://github.com/user-attachments/assets/35bf9dd0-319b-49ab-9859-d893fe92e2db" width="40%" height="20%">
+  <br><br><br>
+로그아웃 버튼 클릭 시, 인가를 통하여 인가 성공시, 로그아웃이 되고, 인트로 화면으로 이동 됩니다.<br>
+<br><br>
+
+
+
 
 
 
