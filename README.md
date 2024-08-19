@@ -129,8 +129,6 @@
 <br><br>
 
 ### 8. 게시글 작성,읽기,수정,삭제
- <img src="https://github.com/user-attachments/assets/2e5b7084-76e8-479b-877d-4ef8e465cc75" width="40%" height="20%">
-  <br><br><br>
 게시글 작성은 제목,내용,게시글내용,이미지업로드란으로 구성이 되어 있습니다.<br>
 이미지 업로드 같은경우, 최대 1장까지만 업로드가 가능 합니다.<br>
 이미지 저장 스토리지 서버는 FireBase Storage를 사용 했습니다.<br>
