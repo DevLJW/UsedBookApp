@@ -13,9 +13,10 @@
 
 
 
+
 <!-- ABOUT THE PROJECT -->
 ## 중고도서 커뮤니티App
-![소통 메인](https://github.com/user-attachments/assets/67f6d109-1ada-4e96-b67f-13e7ee75270f)
+![중고도서 커뮤니티](https://github.com/user-attachments/assets/ab051dc5-4757-4c31-80bf-c5d66d83fd20)
 <br>
 
 
