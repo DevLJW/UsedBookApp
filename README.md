@@ -14,6 +14,7 @@
 
 
 
+
 <!-- ABOUT THE PROJECT -->
 ## 중고도서 커뮤니티App
 ![중고도서 커뮤니티](https://github.com/user-attachments/assets/ab051dc5-4757-4c31-80bf-c5d66d83fd20)
@@ -66,9 +67,11 @@
 <br>
 <br>
 
+
+
 ## 주요기능소개
 ### 1. 회원가입
- <img src="https://github.com/user-attachments/assets/0d6785ea-239f-4046-ba9a-0b5c90e37fcf" width="50%" height="40%">
+ <img src="https://github.com/user-attachments/assets/0d6785ea-239f-4046-ba9a-0b5c90e37fcf" width="40%" height="40%">
  <br><br><br>
 회원가입 필드는, 이메일,패스워드,패스워드 확인,닉네임란으로 구성이 되어 있습니다.<br>
 회원가입 성공 시, FireBase의 SignWithEmailAndPassword 메소드를 호출하여 DB에 저장시킵니다.<br>
@@ -176,7 +179,10 @@ id에 해당하는 댓글리스트를 게시글상세화면에서 출력된다.<
 
 
 ### 11. 지도검색
- <img src="https://github.com/user-attachments/assets/ca47d1da-9d79-4bfe-92b0-df1a4f841dca" width="40%" height="20%">
+
+
+
+ <img src="https://github.com/user-attachments/assets/2f4459a0-27ff-4919-bb17-c0f474096008" width="40%" height="20%">
   <br><br><br>
 지도검색 API는 Tmap API와 Google Map API를 활용하여 개발을 진행 했습니다.<br>
 원하는 위치의 정보는 Tmap API를 활용하여 데이터를 가져오고, Google Map API를 활용하여<br>
