@@ -14,7 +14,7 @@
 
 
 <!-- ABOUT THE PROJECT -->
-## 중고도서 사이트
+## 중고도서 커뮤니티App
 ![소통 메인](https://github.com/user-attachments/assets/67f6d109-1ada-4e96-b67f-13e7ee75270f)
 <br>
 
@@ -170,6 +170,16 @@ id에 해당하는 댓글리스트를 게시글상세화면에서 출력된다.<
 도서검색 기능은 인터파크 API를 활용하여 개발을 진행 했습니다.<br>
 검색하기 전, 도서리스트의 화면에서는 베스트셀러 API를 활용하여, 베스트셀러 도서들의 목록을 출력 합니다.
 도서검색은 책검색API를 활용하여 검색한 키워드에 대한 도서의 리스트를 출력 합니다.
+<br><br>
+
+
+
+### 11. 지도검색
+ <img src="https://github.com/user-attachments/assets/ca47d1da-9d79-4bfe-92b0-df1a4f841dca" width="40%" height="20%">
+  <br><br><br>
+지도검색 API는 Tmap API와 Google Map API를 활용하여 개발을 진행 했습니다.<br>
+원하는 위치의 정보는 Tmap API를 활용하여 데이터를 가져오고, Google Map API를 활용하여<br>
+가져온 데이터를 화면에 출력해주는 기능을 구현 했습니다.
 <br><br>
 
 
